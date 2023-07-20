@@ -1,6 +1,7 @@
 import 'ress'
 import '@/styles/globals.scss'
 
+import { ClerkProvider } from '@clerk/nextjs'
 import { Metadata } from 'next'
 import NextTopLoader from 'nextjs-toploader'
 
@@ -28,16 +29,18 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <meta content="utf-8" name="charset" />
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
-      {/* <Favicons /> */}
-      <body className={fontVariables}>
-        <NextTopLoader color="#2b78dd" showSpinner={false} />
-        {/* <Header /> */}
-        <main>{children}</main>
-        {/* <Footer /> */}
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="ja">
+        <meta content="utf-8" name="charset" />
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        {/* <Favicons /> */}
+        <body className={fontVariables}>
+          <NextTopLoader color="#2b78dd" showSpinner={false} />
+          {/* <Header /> */}
+          <main>{children}</main>
+          {/* <Footer /> */}
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
