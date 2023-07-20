@@ -1,16 +1,27 @@
-import { UserButton } from '@clerk/nextjs'
+import { currentUser } from '@clerk/nextjs'
 
+import NowPlaying from '@/app/components/nowPlaying'
+import SpotifySigninButton from '@/app/components/spotifySigninButton'
+import TopItem from '@/app/components/topItem'
 import MainContainer from '@/components/common/mainContainer'
-export default function Home() {
+export default async function Home() {
+  const user = await currentUser()
+
   return (
     <MainContainer>
-      <div>
-        <UserButton />
-      </div>
-      <h1 className="text-4xl text-center">Home page</h1>
-      <form>
-        <input name="trackUrl" type="url" />
-      </form>
+      <h1 className="text-4xl text-center">Track Share</h1>
+      {user ? (
+        <>
+          <h2>Get NowPlaying</h2>
+          <NowPlaying />
+          <h2>Your Top Items</h2>
+          <TopItem />
+        </>
+      ) : (
+        <div className="flex mt-8">
+          <SpotifySigninButton />
+        </div>
+      )}
     </MainContainer>
   )
 }
