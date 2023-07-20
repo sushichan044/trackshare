@@ -1,3 +1,40 @@
 {
-  "extends": "next/core-web-vitals"
+  "plugins": ["simple-import-sort"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:tailwind/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": [
+    "next.config.js",
+    "postcss.config.js",
+    "tailwind.config.js"
+  ],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["./", "../", "~/"]
+      }
+    ],
+    "react/self-closing-comp": [
+      "error",
+      {
+        "component": true,
+        "html": true
+      }
+    ],
+    "react/jsx-boolean-value": "warn",
+    "react/jsx-curly-brace-presence": "error",
+    "react/jsx-sort-props": "warn"
+  }
 }
