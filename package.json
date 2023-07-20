@@ -5,21 +5,82 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:markup": "markuplint \"./**/*.{jsx,tsx}\"",
+    "prepare": "husky install",
+    "postinstall": "husky install",
+    "eslint:precommit": "eslint --max-warnings 0 --ignore-path .gitignore",
+    "fmt:precommit": "prettier --check --ignore-path .gitignore",
+    "stylelint:precommit": "stylelint --max-warnings 0 --ignore-path .gitignore",
+    "markuplint:precommit": "markuplint --no-color --problem-only \"./**/*.{jsx,tsx}\"",
+    "ncu": "ncu -u --target minor"
+  },
+  "lint-staged": {
+    "./**/*.{js,ts}": [
+      "npm run eslint:precommit",
+      "npm run fmt:precommit"
+    ],
+    "./**/*.{jsx,tsx}": [
+      "npm run eslint:precommit",
+      "npm run fmt:precommit",
+      "npm run markuplint:precommit"
+    ],
+    "./**/*.{css,scss}": "npm run stylelint:precommit"
   },
   "dependencies": {
-    "@types/node": "20.4.2",
-    "@types/react": "18.2.15",
-    "@types/react-dom": "18.2.7",
-    "autoprefixer": "10.4.14",
+    "@next/bundle-analyzer": "^13.4.10",
+    "clsx": "^1.2.1",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
-    "next": "13.4.10",
+    "next": "^13.4.10",
+    "nextjs-toploader": "^1.4.2",
     "postcss": "8.4.26",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "ress": "^5.0.2",
+    "shiki": "^0.14.3",
     "tailwindcss": "3.3.3",
-    "typescript": "5.1.6"
+    "typescript": "5.1.6",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@markuplint/jsx-parser": "^3.9.0",
+    "@markuplint/react-spec": "^3.10.0",
+    "@types/eslint": "8.44.0",
+    "@types/node": "20.4.2",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "autoprefixer": "^10.4.14",
+    "eslint": "8.45.0",
+    "eslint-config-next": "13.4.10",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "markuplint": "^3.12.0",
+    "npm-check-updates": "^16.10.16",
+    "postcss": "^8.4.26",
+    "prettier": "^2.8.8",
+    "sass": "^1.63.6",
+    "stylelint": "^15.10.1",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recess-order": "^4.3.0",
+    "stylelint-config-sass-guidelines": "^10.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.7.0",
+    "stylelint-value-no-unknown-custom-properties": "^4.0.0",
+    "tailwindcss": "^3.3.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  },
+  "volta": {
+    "node": "18.17.0",
+    "yarn": "4.0.0-rc.48"
   }
 }
