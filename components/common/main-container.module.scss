@@ -1,0 +1,10 @@
+@use "/styles/variables" as var;
+@use "/styles/mixins" as mix;
+
+.root {
+  max-width: var.$layout-max-width;
+  margin-inline: auto;
+  @include mix.mq("2xl") {
+    max-width: var.$layout-max-width-2xl;
+  }
+}
