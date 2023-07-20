@@ -14,6 +14,9 @@ const NowPlaying = async () => {
   if (!res.ok) {
     return <div>error</div>
   }
+  if (res.isEmpty) {
+    return <div>You are not playing any music now...</div>
+  }
   const track = res.data
 
   if (!track.item) {

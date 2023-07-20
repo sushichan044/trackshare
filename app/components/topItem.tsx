@@ -14,7 +14,7 @@ const TopItem = async () => {
     timeRange: 'short_term',
     limit: 10,
   })
-  if (!res.ok) {
+  if (!res.ok || res.isEmpty) {
     return <div>error</div>
   }
   const tracks = res.data
