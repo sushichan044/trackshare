@@ -6,7 +6,7 @@ import { Metadata } from 'next'
 import NextTopLoader from 'nextjs-toploader'
 
 // import Footer from '@/components/layout/footer'
-// import Header from '@/components/layout/header'
+import Header from '@/components/layout/header'
 // import Favicons from '@/components/meta/favicons'
 import { fontVariables } from '@/lib/font'
 
@@ -36,7 +36,7 @@ export default function RootLayout({
         {/* <Favicons /> */}
         <body className={fontVariables}>
           <NextTopLoader color="#2b78dd" showSpinner={false} />
-          {/* <Header /> */}
+          <Header />
           <main>{children}</main>
           {/* <Footer /> */}
         </body>

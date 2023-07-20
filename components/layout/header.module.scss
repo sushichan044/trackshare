@@ -1,0 +1,49 @@
+@use "/styles/mixins" as mix;
+@use "/styles/variables" as var;
+
+.container {
+  // TODO: sticky
+  // きれいに隠したりしようとするとframer-motionが必要
+  // @include gen.set-theme;
+
+  // position: sticky;
+  // top: 0;
+  // z-index: 100;
+  width: 100%;
+  height: var.$header-height;
+}
+
+.header-inside {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var.$layout-max-width;
+  margin-inline: auto;
+  @include mix.mq("2xl") {
+    max-width: var.$layout-max-width-2xl;
+  }
+
+  border-bottom: 1px solid var.$text-color-light;
+  @include mix.theme("dark") {
+    border-bottom: 1px solid var.$text-color-dark;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  @include mix.mq("md", "max") {
+    img {
+      display: none;
+    }
+  }
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  @include mix.mq("md") {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,31 @@
+@use "/styles/variables" as var;
+
+.deco-underline {
+  text-decoration: underline;
+}
+
+.deco-none {
+  text-decoration: none;
+}
+
+.deco-inherit {
+  text-decoration: inherit;
+}
+
+.color-inherit {
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    color: var.$hover-color;
+  }
+}
+
+.color-blue {
+  color: var.$hover-color;
+
+  &:hover,
+  &:focus {
+    color: var.$hover-color-lighter;
+  }
+}
