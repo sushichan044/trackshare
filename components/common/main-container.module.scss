@@ -3,6 +3,7 @@
 
 .root {
   max-width: var.$layout-max-width;
+  padding: 1rem;
   margin-inline: auto;
   @include mix.mq("2xl") {
     max-width: var.$layout-max-width-2xl;
