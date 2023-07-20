@@ -13,8 +13,8 @@ import { fontVariables } from '@/lib/font'
 export const metadata: Metadata = {
   metadataBase: new URL('https://sushichan.live'),
   title: {
-    default: 'trackshare',
-    template: '%s - trackshare',
+    default: 'Track Share',
+    template: '%s - Track Share',
   },
   description: '聴いている音楽を気軽にシェアしよう',
   openGraph: {
