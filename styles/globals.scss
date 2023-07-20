@@ -1,0 +1,49 @@
+@use "/styles/typography.scss" as typography;
+@use "/styles/variables" as var;
+@use "/styles/mixins" as mix;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  display: flex;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+  font-family: var(--font-roboto), var(--font-noto-sans-jp), system-ui,
+    -apple-system, blinkmacsystemfont, "Segoe UI", oxygen, ubuntu, cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  color: var.$text-color-light;
+  background-color: var.$theme-color-light;
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+    background-color: var.$theme-color-dark;
+  }
+
+  // typography
+  @include typography.set-typography;
+}
+
+main {
+  flex: 1;
+}
+
+body code,
+body pre {
+  font-family: var(--font-fira-code), var(--font-noto-sans-jp), monospace;
+  font-weight: 400;
+}
+
+a {
+  // TODO: ここは多分リンクに最初から色を付けるべき...
+  color: var.$text-color-light;
+  text-decoration: none;
+  @include mix.hover(var.$text-color-light, $color: true);
+
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+    @include mix.hover(var.$text-color-dark, $color: true);
+  }
+
+  word-wrap: break-word;
+}

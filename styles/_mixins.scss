@@ -1,0 +1,62 @@
+@use "sass:color";
+@use "/styles/variables" as var;
+
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "2xl": 2000px,
+);
+
+@mixin mq($size, $range: min) {
+  @media screen and (#{$range}-width: #{map-get($breakpoints, $size)}) {
+    @content;
+  }
+}
+
+@mixin theme($scheme) {
+  @media screen and (prefers-color-scheme: #{$scheme}) {
+    @content;
+  }
+}
+
+@mixin hover(
+  $bg-color: #fff,
+  $bg: false,
+  $color: false,
+  $shadow: false,
+  $transform: false
+) {
+  $bg-color-light: color.adjust($bg-color, $blackness: 5%);
+  $bg-color-dark: color.adjust($bg-color, $whiteness: 5%);
+  $box-shadow: rgb(0 0 0 / 25%) 0 0.25em 0.25em;
+  $transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out,
+    box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out;
+
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    transition: $transition;
+
+    @if $bg {
+      background-color: $bg-color-light;
+      @include mix.theme("dark") {
+        background-color: $bg-color-dark;
+      }
+    }
+
+    @if $color {
+      color: var.$hover-color;
+    }
+
+    @if $shadow {
+      box-shadow: $box-shadow;
+    }
+
+    @if $transform {
+      transform: translateY(-0.125em);
+    }
+  }
+}
