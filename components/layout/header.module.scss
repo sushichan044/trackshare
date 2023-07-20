@@ -18,14 +18,17 @@
   align-items: center;
   justify-content: space-between;
   max-width: var.$layout-max-width;
+  padding: var.$layout-padding-sp;
   margin-inline: auto;
+  border-bottom: 1px solid var.$text-color-light;
   @include mix.mq("2xl") {
     max-width: var.$layout-max-width-2xl;
   }
-
-  border-bottom: 1px solid var.$text-color-light;
   @include mix.theme("dark") {
     border-bottom: 1px solid var.$text-color-dark;
+  }
+  @include mix.mq("2xl") {
+    max-width: var.$layout-max-width-2xl;
   }
 }
 

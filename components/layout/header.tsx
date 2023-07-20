@@ -15,7 +15,7 @@ const Header = () => {
           options={{ textDecoration: 'none' }}
         >
           {/* <Image alt="site logo" height={50} src={LogoSvg} width={50} /> */}
-          <p className={styles.title}>track share</p>
+          <p className={styles.title}>Track Share</p>
         </Link>
         <UserButton afterSignOutUrl="/" />
       </div>
