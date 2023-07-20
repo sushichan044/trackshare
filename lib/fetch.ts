@@ -3,6 +3,7 @@ type FetchSucceedResponse<T> = {
   data: T
   status: number
   raw: Response
+  isEmpty: false
 }
 
 type FetchFailedResponse = {
@@ -10,9 +11,21 @@ type FetchFailedResponse = {
   error: string
   status: number
   raw: Response | null
+  isEmpty: false
 }
 
-export type FetchResponse<T> = FetchSucceedResponse<T> | FetchFailedResponse
+type FetchEmptyResponse = {
+  ok: true
+  data: null
+  status: number
+  raw: Response
+  isEmpty: true
+}
+
+export type FetchResponse<T> =
+  | FetchSucceedResponse<T>
+  | FetchFailedResponse
+  | FetchEmptyResponse
 
 export async function doFetch<T>(
   input: RequestInfo | URL,
@@ -21,10 +34,11 @@ export async function doFetch<T>(
   const res = await fetch(input, init)
   if (res.status === 204) {
     return {
-      ok: false,
-      error: res.statusText,
+      ok: true,
+      data: null,
       status: res.status,
       raw: res,
+      isEmpty: true,
     }
   }
   const data = await res.json()
@@ -34,6 +48,7 @@ export async function doFetch<T>(
       error: data?.error?.message ?? 'Unknown error',
       status: res.status,
       raw: res,
+      isEmpty: false,
     }
   }
   return {
@@ -41,6 +56,7 @@ export async function doFetch<T>(
     data: data as T,
     status: res.status,
     raw: res,
+    isEmpty: false,
   }
 }
 

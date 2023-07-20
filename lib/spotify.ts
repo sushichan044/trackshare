@@ -127,6 +127,7 @@ class SpotifyClient {
         error: 'Invalid track url',
         status: 400,
         raw: null,
+        isEmpty: false,
       }
     }
 
