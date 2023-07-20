@@ -12,7 +12,6 @@ export default async function Home() {
       <h1 className="text-4xl text-center">Track Share</h1>
       {user ? (
         <>
-          <h2>Get NowPlaying</h2>
           <NowPlaying />
           <h2>Your Top Items</h2>
           <TopItem />
