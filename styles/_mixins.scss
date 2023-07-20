@@ -42,7 +42,7 @@ $breakpoints: (
 
     @if $bg {
       background-color: $bg-color-light;
-      @include mix.theme("dark") {
+      @include theme("dark") {
         background-color: $bg-color-dark;
       }
     }

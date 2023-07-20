@@ -1,12 +1,11 @@
 @use "/styles/variables" as var;
 @use "/styles/mixins" as mix;
-@use "/styles/general.scss" as gen;
 
 @mixin apply-color {
   color: var.$text-color-light;
   background-color: var.$theme-color-light;
   outline: var.$theme-color-dark solid 1px;
-  @include gen.hover(
+  @include mix.hover(
     var.$theme-color-light,
     $bg: true,
     $shadow: true,
@@ -17,7 +16,7 @@
     color: var.$text-color-dark;
     background-color: var.$theme-color-dark;
     outline: var.$theme-color-light solid 1px;
-    @include gen.hover(
+    @include mix.hover(
       var.$theme-color-dark,
       $bg: true,
       $shadow: true,
