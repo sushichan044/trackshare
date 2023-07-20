@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 import TweetButton from '@/components/share/tweetButton'
-import { getNowPlayingTweet } from '@/lib/spotify'
+import { getItemInfo, getNowPlayingTweet } from '@/lib/spotify'
 
 const getThumbnail = (
   track: SpotifyApi.TrackObjectFull | SpotifyApi.EpisodeObject
@@ -23,12 +23,14 @@ const Item = ({
 }) => {
   // check typeof track
   const thumbnail = getThumbnail(item)
-  const tweet = getNowPlayingTweet(item)
+  const url = item.external_urls.spotify
+  const itemInfo = getItemInfo(item)
+  const tweet = getNowPlayingTweet({ url, itemInfo })
 
   return (
     <div>
       <div className="flex items-center gap-x-4">
-        <p>{item.name}</p>
+        <p>{itemInfo.shortFormatted}</p>
         <TweetButton tweet={tweet} />
       </div>
       <div className="relative w-full aspect-square rounded-md">
