@@ -1,0 +1,12 @@
+@use "/styles/variables" as var;
+@use "/styles/mixins" as mix;
+
+.root {
+  color: var.$text-color-light;
+  @include mix.hover(var.$text-color-light, $color: true);
+
+  @include mix.theme("dark") {
+    color: var.$text-color-dark;
+    @include mix.hover(var.$text-color-dark, $color: true);
+  }
+}

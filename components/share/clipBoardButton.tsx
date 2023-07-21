@@ -4,6 +4,8 @@ import { useState } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FaCheck, FaCopy } from 'react-icons/fa6'
 
+import styles from '@/components/share/clipboard-button.module.scss'
+
 const CopyToClipboardButton = ({ text }: { text: string }) => {
   const [isCopied, setCopied] = useState(false)
 
@@ -17,7 +19,7 @@ const CopyToClipboardButton = ({ text }: { text: string }) => {
   return (
     <CopyToClipboard text={text}>
       <button
-        className="text-inherit"
+        className={styles.root}
         onClick={() => setCopied(true)}
         title="Copy #Nowplaying to Clipboard"
       >
