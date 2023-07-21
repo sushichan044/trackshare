@@ -1,8 +1,8 @@
-import { parseTweet } from 'twitter-text'
+// import { parseTweet } from 'twitter-text'
 
-const canTweet = (text: string) => {
-  const parsed = parseTweet(text)
-  return parsed.valid
-}
+// const canTweet = (text: string) => {
+//   const parsed = parseTweet(text)
+//   return parsed.valid
+// }
 
-export { canTweet }
+// export { canTweet }

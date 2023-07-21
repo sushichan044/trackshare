@@ -46,7 +46,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.3.1":
+"@babel/runtime@npm:^7.20.7, @babel/runtime@npm:^7.21.0":
   version: 7.22.6
   resolution: "@babel/runtime@npm:7.22.6"
   dependencies:
@@ -2453,13 +2453,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^2.5.0":
-  version: 2.6.12
-  resolution: "core-js@npm:2.6.12"
-  checksum: 00128efe427789120a06b819adc94cc72b96955acb331cb71d09287baf9bd37bebd191d91f1ee4939c893a050307ead4faea08876f09115112612b6a05684b63
-  languageName: node
-  linkType: hard
-
 "cosmiconfig-typescript-loader@npm:^4.3.0":
   version: 4.3.0
   resolution: "cosmiconfig-typescript-loader@npm:4.3.0"
@@ -2913,9 +2906,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.431":
-  version: 1.4.466
-  resolution: "electron-to-chromium@npm:1.4.466"
-  checksum: 212d790f649f76422f3c214e1d967b285d56cc02cf8d567ce31f15fa7b22b6a83f784c70df72395405cda1f0854881b6a2afa75acbcacffb1cfef3024312e22d
+  version: 1.4.467
+  resolution: "electron-to-chromium@npm:1.4.467"
+  checksum: f755ebbbe39b645dc6627f32d012c24c4564e5cbc248ba248b40fbe1c16d7d1e3351bcb88c505daa71f90deeae12cae9c68315ec2c245cef4709a68a9f7e4b63
   languageName: node
   linkType: hard
 
@@ -3319,8 +3312,8 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-react@npm:^7.31.7":
-  version: 7.32.2
-  resolution: "eslint-plugin-react@npm:7.32.2"
+  version: 7.33.0
+  resolution: "eslint-plugin-react@npm:7.33.0"
   dependencies:
     array-includes: "npm:^3.1.6"
     array.prototype.flatmap: "npm:^1.3.1"
@@ -3335,11 +3328,11 @@ __metadata:
     object.values: "npm:^1.1.6"
     prop-types: "npm:^15.8.1"
     resolve: "npm:^2.0.0-next.4"
-    semver: "npm:^6.3.0"
+    semver: "npm:^6.3.1"
     string.prototype.matchall: "npm:^4.0.8"
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
-  checksum: 9ddd5cfc508555a5cb3edbdcc9138dd472d269d3a45da0be3e267ea2b3fa1b5990823675208c0e11376c9c55e46aaad5b7a5f46c965eb4dcf6f1eebcebf174c3
+  checksum: 015aaaa133bacd99bd1f82b91852d6fcca7e2b6c11d1ef96ed3c0dae0b5fe89230f66990e12898f237f3f67296234650130e0337db669c32e30132ccae66a696
   languageName: node
   linkType: hard
 
@@ -7171,13 +7164,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"punycode@npm:1.4.1":
-  version: 1.4.1
-  resolution: "punycode@npm:1.4.1"
-  checksum: 354b743320518aef36f77013be6e15da4db24c2b4f62c5f1eb0529a6ed02fbaf1cb52925785f6ab85a962f2b590d9cd5ad730b70da72b5f180e2556b8bd3ca08
-  languageName: node
-  linkType: hard
-
 "punycode@npm:^2.1.0":
   version: 2.3.0
   resolution: "punycode@npm:2.3.0"
@@ -7815,7 +7801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^6.3.0":
+"semver@npm:^6.3.0, semver@npm:^6.3.1":
   version: 6.3.1
   resolution: "semver@npm:6.3.1"
   bin:
@@ -8914,7 +8900,6 @@ __metadata:
     stylelint-value-no-unknown-custom-properties: "npm:^4.0.0"
     tailwindcss: "npm:^3.3.3"
     ts-node: "npm:^10.9.1"
-    twitter-text: "npm:^3.1.0"
     typescript: "npm:^5.1.6"
     zod: "npm:^3.21.4"
   languageName: unknown
@@ -9038,25 +9023,6 @@ __metadata:
     debug: "npm:^4.3.4"
     make-fetch-happen: "npm:^11.1.1"
   checksum: 7c4980ada7a55f2670b895e8d9345ef2eec4a471c47f6127543964a12a8b9b69f16002990e01a138cd775aa954880b461186a6eaf7b86633d090425b4273375b
-  languageName: node
-  linkType: hard
-
-"twemoji-parser@npm:^11.0.2":
-  version: 11.0.2
-  resolution: "twemoji-parser@npm:11.0.2"
-  checksum: b06116434ef19dcf34fcc44129482dcf561a4f78fd6525aba55329b5a50b525c68125f95d040e9274cd9a1f3e8315b8e6842bb735c68069530a9cb28422130d6
-  languageName: node
-  linkType: hard
-
-"twitter-text@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "twitter-text@npm:3.1.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.3.1"
-    core-js: "npm:^2.5.0"
-    punycode: "npm:1.4.1"
-    twemoji-parser: "npm:^11.0.2"
-  checksum: 34f2b42df7a0cde707ae3d9138b0232eabced946ab9f825b2500fbcc0c8be8a494fdf98ab5f4c44d7c652843c0c3846ab0aba952c7e3ca90aad69edb06dccdf5
   languageName: node
   linkType: hard
 
