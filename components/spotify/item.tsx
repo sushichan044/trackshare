@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import CopyToClipboardButton from '@/components/share/clipBoardButton'
 import SpotifyButton from '@/components/share/spotifyButton'
 import TweetButton from '@/components/share/tweetButton'
 import { getItemInfo, getNowPlayingTweet } from '@/lib/spotify'
@@ -34,6 +35,7 @@ const Item = ({
         <p>{itemInfo.shortFormatted}</p>
         <SpotifyButton url={url} />
         <TweetButton tweet={tweet} />
+        <CopyToClipboardButton text={tweet} />
       </div>
       <div className="relative w-full aspect-square rounded-md">
         {thumbnail ? (

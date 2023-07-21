@@ -1222,6 +1222,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-copy-to-clipboard@npm:^5":
+  version: 5.0.4
+  resolution: "@types/react-copy-to-clipboard@npm:5.0.4"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: ac90c7ab30982cebdfc995022e724e898369c6b58a852f45aff0e18522cebe79a9ce75042e0f55b3bdc86300eff46764956ed49489fbc347141061c64002855b
+  languageName: node
+  linkType: hard
+
 "@types/react-dom@npm:^18.2.7":
   version: 18.2.7
   resolution: "@types/react-dom@npm:18.2.7"
@@ -2450,6 +2459,15 @@ __metadata:
   version: 0.5.0
   resolution: "cookie@npm:0.5.0"
   checksum: c01ca3ef8d7b8187bae434434582288681273b5a9ed27521d4d7f9f7928fe0c920df0decd9f9d3bbd2d14ac432b8c8cf42b98b3bdd5bfe0e6edddeebebe8b61d
+  languageName: node
+  linkType: hard
+
+"copy-to-clipboard@npm:^3.3.1":
+  version: 3.3.3
+  resolution: "copy-to-clipboard@npm:3.3.3"
+  dependencies:
+    toggle-selection: "npm:^1.0.6"
+  checksum: 3ebf5e8ee00601f8c440b83ec08d838e8eabb068c1fae94a9cda6b42f288f7e1b552f3463635f419af44bf7675afc8d0390d30876cf5c2d5d35f86d9c56a3e5f
   languageName: node
   linkType: hard
 
@@ -7250,6 +7268,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-copy-to-clipboard@npm:^5.1.0":
+  version: 5.1.0
+  resolution: "react-copy-to-clipboard@npm:5.1.0"
+  dependencies:
+    copy-to-clipboard: "npm:^3.3.1"
+    prop-types: "npm:^15.8.1"
+  peerDependencies:
+    react: ^15.3.0 || 16 || 17 || 18
+  checksum: de70d9f9c2d17cee207888ed791d4a042c300e5ca732503434d49e6745cff56c0d5ebcc82ab86237e9c2248e636d1d031b9f9cf9913ecec61d82a0e5ebc93881
+  languageName: node
+  linkType: hard
+
 "react-dom@npm:18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
@@ -8835,6 +8865,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"toggle-selection@npm:^1.0.6":
+  version: 1.0.6
+  resolution: "toggle-selection@npm:1.0.6"
+  checksum: f2cf1f2c70f374fd87b0cdc8007453ba9e981c4305a8bf4eac10a30e62ecdfd28bca7d18f8f15b15a506bf8a7bfb20dbe3539f0fcf2a2c8396c1a78d53e1f179
+  languageName: node
+  linkType: hard
+
 "totalist@npm:^1.0.0":
   version: 1.1.0
   resolution: "totalist@npm:1.1.0"
@@ -8860,6 +8897,7 @@ __metadata:
     "@types/eslint": "npm:8.44.0"
     "@types/node": "npm:20.4.2"
     "@types/react": "npm:^18.2.15"
+    "@types/react-copy-to-clipboard": "npm:^5"
     "@types/react-dom": "npm:^18.2.7"
     "@types/spotify-api": "npm:^0.0.22"
     "@types/styled-components": "npm:^5.1.26"
@@ -8884,6 +8922,7 @@ __metadata:
     postcss: "npm:^8.4.26"
     prettier: "npm:^2.8.8"
     react: "npm:18.2.0"
+    react-copy-to-clipboard: "npm:^5.1.0"
     react-dom: "npm:18.2.0"
     react-icons: "npm:^4.10.1"
     ress: "npm:^5.0.2"
