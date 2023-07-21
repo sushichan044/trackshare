@@ -1,11 +1,11 @@
-import { currentUser } from '@clerk/nextjs'
+import { auth } from '@clerk/nextjs'
 
 import NowPlaying from '@/app/components/nowPlaying'
 import SpotifySigninButton from '@/app/components/spotifySigninButton'
 import TopItem from '@/app/components/topItem'
 import MainContainer from '@/components/common/mainContainer'
 export default async function Home() {
-  const user = await currentUser()
+  const { user } = auth()
   console.log(user)
 
   return (
