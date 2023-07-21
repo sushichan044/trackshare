@@ -20,8 +20,10 @@ const getThumbnail = (
 
 const Item = ({
   item,
+  priority = false,
 }: {
   item: SpotifyApi.TrackObjectFull | SpotifyApi.EpisodeObject
+  priority?: boolean
 }) => {
   // check typeof track
   const thumbnail = getThumbnail(item)
@@ -43,6 +45,7 @@ const Item = ({
             alt={item.name}
             className="rounded-md"
             fill
+            priority={priority}
             src={thumbnail.url}
             style={{ objectFit: 'cover' }}
           />

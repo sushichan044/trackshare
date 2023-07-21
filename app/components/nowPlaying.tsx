@@ -60,7 +60,7 @@ const NowPlaying = async () => {
 
   return (
     <NowPlayingBase>
-      <Item item={track.item} />
+      <Item item={track.item} priority />
     </NowPlayingBase>
   )
 }
