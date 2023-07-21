@@ -29,7 +29,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+    >
       <html lang="ja">
         <meta content="utf-8" name="charset" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
