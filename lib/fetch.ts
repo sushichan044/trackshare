@@ -41,7 +41,27 @@ export async function doFetch<T>(
       isEmpty: true,
     }
   }
-  const data = await res.json()
+  let data
+  try {
+    data = await res.json()
+  } catch (error) {
+    if (error instanceof Error) {
+      return {
+        ok: false,
+        error: error.message,
+        status: res.status,
+        raw: res,
+        isEmpty: false,
+      }
+    }
+    return {
+      ok: false,
+      error: 'Unknown error',
+      status: res.status,
+      raw: res,
+      isEmpty: false,
+    }
+  }
   if (res.status !== 200) {
     return {
       ok: false,
