@@ -6,6 +6,7 @@ import TopItem from '@/app/components/topItem'
 import MainContainer from '@/components/common/mainContainer'
 export default async function Home() {
   const user = await currentUser()
+  console.log(user)
 
   return (
     <MainContainer>
