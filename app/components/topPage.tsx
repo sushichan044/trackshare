@@ -1,10 +1,12 @@
-import { auth } from '@clerk/nextjs'
+'use client'
+
+import { useUser } from '@clerk/nextjs'
 
 import NowPlaying from '@/app/components/nowPlaying'
 import SpotifySigninButton from '@/app/components/spotifySigninButton'
 import TopItem from '@/app/components/topItem'
-export default async function TopPage() {
-  const { user } = auth()
+export default function TopPage() {
+  const { user } = useUser()
   console.log(user)
 
   return (
