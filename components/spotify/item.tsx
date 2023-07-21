@@ -1,5 +1,6 @@
 import Image from 'next/image'
 
+import SpotifyButton from '@/components/share/spotifyButton'
 import TweetButton from '@/components/share/tweetButton'
 import { getItemInfo, getNowPlayingTweet } from '@/lib/spotify'
 
@@ -31,6 +32,7 @@ const Item = ({
     <div>
       <div className="flex items-center gap-x-4">
         <p>{itemInfo.shortFormatted}</p>
+        <SpotifyButton url={url} />
         <TweetButton tweet={tweet} />
       </div>
       <div className="relative w-full aspect-square rounded-md">
