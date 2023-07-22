@@ -1,46 +1,7 @@
-import { clerkClient } from '@clerk/nextjs'
 import queryString from 'query-string'
 
-import { doFetch, type FetchResponse } from '@/lib/fetch'
+import { doFetch, FetchResponse } from '@/lib/fetch'
 import { mergeRecords } from '@/utils/record'
-
-type spotifyElementData = {
-  id: string
-  type: 'track' | 'artist' | 'album' | 'playlist' | 'show' | 'episode' | 'user'
-}
-
-type fetchOptions = {
-  params: Record<string, string>
-  nextConfig?: NextFetchRequestConfig
-}
-
-type ItemInfo =
-  | {
-      name: string
-      formatted: string
-      shortFormatted: string
-    } & (
-      | {
-          artists: string[]
-          album: string | null
-          type: 'track'
-        }
-      | {
-          show: string
-          type: 'episode'
-        }
-      | {
-          type: 'unknown'
-        }
-    )
-
-async function getUserSpotifyAccessToken(userId: string) {
-  const tokens = await clerkClient.users.getUserOauthAccessToken(
-    userId,
-    'oauth_spotify'
-  )
-  return tokens
-}
 
 class SpotifyClient {
   private static readonly API_URL = new URL('https://api.spotify.com/v1/')
@@ -180,55 +141,4 @@ class SpotifyClient {
     }
   }
 }
-
-const getNowPlayingTweet = ({ itemInfo }: { itemInfo: ItemInfo }): string => {
-  const { type, ...rest } = itemInfo
-  if (type == 'unknown') {
-    return ''
-  }
-  return `#NowPlaying\n${rest.formatted}`
-}
-
-const getItemInfo = (
-  item: SpotifyApi.TrackObjectFull | SpotifyApi.EpisodeObject
-): ItemInfo => {
-  if (item.type == 'track') {
-    const name = item.name
-    const artists = item.artists.map((artist) => artist.name)
-    const album =
-      item.album.name && item.album.name != '' ? item.album.name : null
-    return {
-      name,
-      artists,
-      album,
-      type: 'track',
-      formatted:
-        `${name} / ${artists.join(', ')}` + (album ? ` - ${album}` : ''),
-      shortFormatted: `${name} / ${artists[0]}`,
-    }
-  }
-  if (item.type == 'episode') {
-    const name = item.name
-    const show = item.show.name
-    return {
-      name,
-      show,
-      type: 'episode',
-      formatted: `${name} / ${show}`,
-      shortFormatted: `${name} / ${show}`,
-    }
-  }
-  return {
-    name: '',
-    type: 'unknown',
-    formatted: 'Unknown',
-    shortFormatted: 'Unknown',
-  }
-}
-
-export {
-  SpotifyClient,
-  getUserSpotifyAccessToken,
-  getNowPlayingTweet,
-  getItemInfo,
-}
+export { SpotifyClient }
