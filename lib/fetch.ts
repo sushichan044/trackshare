@@ -65,7 +65,8 @@ export async function doFetch<T>(
   if (res.status !== 200) {
     return {
       ok: false,
-      error: data?.error?.message ?? 'Unknown error',
+      // convert data to string
+      error: JSON.stringify(data) ?? 'Unknown error',
       status: res.status,
       raw: res,
       isEmpty: false,
