@@ -1,8 +1,9 @@
 import Image from 'next/image'
+import { FaCheck, FaCopy, FaSpotify, FaTwitter } from 'react-icons/fa6'
 
-import CopyToClipboardButton from '@/components/share/clipBoardButton'
-import SpotifyButton from '@/components/share/spotifyButton'
-import TweetButton from '@/components/share/tweetButton'
+import CopyToClipboard from '@/components/share/copyToClipBoard'
+import Spotify from '@/components/share/spotify'
+import Tweet from '@/components/share/tweet'
 import { getItemInfo, getNowPlayingTweet } from '@/lib/spotify'
 
 const getThumbnail = (
@@ -29,15 +30,24 @@ const Item = ({
   const thumbnail = getThumbnail(item)
   const url = item.external_urls.spotify
   const itemInfo = getItemInfo(item)
-  const tweet = getNowPlayingTweet({ url, itemInfo })
+  const tweet = getNowPlayingTweet({ itemInfo })
 
   return (
     <div>
       <div className="flex items-center gap-x-4">
         <p>{itemInfo.shortFormatted}</p>
-        <SpotifyButton url={url} />
-        <TweetButton tweet={tweet} />
-        <CopyToClipboardButton text={tweet} />
+        <Spotify url={url}>
+          <FaSpotify />
+        </Spotify>
+        <Tweet text={tweet} url={url}>
+          <FaTwitter />
+        </Tweet>
+        <CopyToClipboard
+          childrenAfterCopy={<FaCheck />}
+          childrenBeforeCopy={<FaCopy />}
+          textToCopy={tweet}
+          title="Copy #Nowplaying to Clipboard"
+        />
       </div>
       <div className="relative w-full aspect-square rounded-md">
         {thumbnail ? (
