@@ -1,6 +1,7 @@
 import { clerkClient } from '@clerk/nextjs'
+import queryString from 'query-string'
 
-import { doFetch, type FetchResponse, mergeUrlAndParams } from '@/lib/fetch'
+import { doFetch, type FetchResponse } from '@/lib/fetch'
 import { mergeRecords } from '@/utils/record'
 
 type spotifyElementData = {
@@ -42,7 +43,7 @@ async function getUserSpotifyAccessToken(userId: string) {
 }
 
 class SpotifyClient {
-  private static readonly API_URL = 'https://api.spotify.com/v1'
+  private static readonly API_URL = new URL('https://api.spotify.com/v1/')
   private static readonly BASE_PARAMS = {
     // market: 'JP',
     // locale: 'ja_JP',
@@ -54,9 +55,12 @@ class SpotifyClient {
     endpoint: string,
     { params, nextConfig }: fetchOptions
   ): Promise<FetchResponse<T>> {
+    const apiUrl = new URL(endpoint, SpotifyClient.API_URL)
     const fullParams = mergeRecords(SpotifyClient.BASE_PARAMS, params)
-    const baseUrl = `${SpotifyClient.API_URL}/${endpoint}`
-    const url = mergeUrlAndParams(baseUrl, fullParams)
+    const url = queryString.stringifyUrl({
+      url: apiUrl.toString(),
+      query: fullParams,
+    })
 
     const res = await doFetch<T>(url, {
       headers: {
@@ -177,21 +181,12 @@ class SpotifyClient {
   }
 }
 
-const getNowPlayingTweet = ({
-  url,
-  itemInfo,
-}: {
-  url: string
-  itemInfo: ItemInfo
-}): string => {
+const getNowPlayingTweet = ({ itemInfo }: { itemInfo: ItemInfo }): string => {
   const { type, ...rest } = itemInfo
   if (type == 'unknown') {
     return ''
   }
-  return `#NowPlaying
-${rest.formatted}
-${url}
-`
+  return `#NowPlaying\n${rest.formatted}`
 }
 
 const getItemInfo = (
