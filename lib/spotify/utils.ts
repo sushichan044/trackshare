@@ -8,12 +8,18 @@ async function getUserSpotifyAccessToken(userId: string) {
   return tokens
 }
 
-const getNowPlayingTweet = ({ itemInfo }: { itemInfo: ItemInfo }): string => {
+const getNowPlayingTweet = ({
+  itemInfo,
+  url,
+}: {
+  itemInfo: ItemInfo
+  url: string
+}): string => {
   const { type, ...rest } = itemInfo
   if (type == 'unknown') {
     return ''
   }
-  return `#NowPlaying\n${rest.formatted}`
+  return `#NowPlaying\n${rest.formatted}\n${url}`
 }
 
 const getItemInfo = (

@@ -30,7 +30,7 @@ const Item = ({
   const thumbnail = getThumbnail(item)
   const url = item.external_urls.spotify
   const itemInfo = getItemInfo(item)
-  const tweet = getNowPlayingTweet({ itemInfo })
+  const tweet = getNowPlayingTweet({ itemInfo, url })
 
   return (
     <div>
@@ -39,7 +39,7 @@ const Item = ({
         <Spotify url={url}>
           <FaSpotify />
         </Spotify>
-        <Tweet text={tweet} url={url}>
+        <Tweet text={tweet}>
           <FaTwitter />
         </Tweet>
         <CopyToClipboard
