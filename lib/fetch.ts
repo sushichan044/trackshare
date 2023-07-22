@@ -79,8 +79,3 @@ export async function doFetch<T>(
     isEmpty: false,
   }
 }
-
-export function mergeUrlAndParams(url: string, params: Record<string, string>) {
-  const queries = new URLSearchParams(params)
-  return `${url}/?${queries.toString()}`
-}
